@@ -7,8 +7,9 @@ class PlanDataBase {
 
   void createData() {
     planList = [
-      ['Text 1', false],
-      ['Text 2', false],
+      ['You are a beautiful girl 🤩', false],
+      ['I love you, my Grinch 😘', false],
+      ['Remember I\'m always there 🥺', false],
     ];
   }
 

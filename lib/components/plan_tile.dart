@@ -17,7 +17,10 @@ class PlanTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 25, left: 25, right: 25),
+      padding: const EdgeInsets.only(
+        left: 25,
+        right: 25,
+      ),
       child: Slidable(
         endActionPane: ActionPane(
           motion: StretchMotion(),
@@ -31,24 +34,41 @@ class PlanTile extends StatelessWidget {
           ],
         ),
         child: Container(
-          padding: const EdgeInsets.all(25),
+          margin: EdgeInsets.only(top: 15, bottom: 15),
+          padding: const EdgeInsets.all(15),
           decoration: BoxDecoration(
-            color: Colors.yellow,
             borderRadius: BorderRadius.circular(12),
+            color: Colors.grey.shade300,
+            boxShadow: const [
+              BoxShadow(
+                blurRadius: 15.0,
+                offset: Offset(-5, -5),
+                color: Colors.white,
+              ),
+              BoxShadow(
+                blurRadius: 15.0,
+                offset: Offset(5, 5),
+                color: Colors.grey,
+              ),
+            ],
           ),
           child: Row(
             children: [
               Checkbox(
                 value: taskCompleted,
                 onChanged: onChanged,
-                activeColor: Colors.black,
+                activeColor: Colors.grey.shade600,
               ),
-              Text(
-                taskName,
-                style: TextStyle(
-                  decoration: taskCompleted
-                      ? TextDecoration.lineThrough
-                      : TextDecoration.none,
+              Flexible(
+                child: Text(
+                  taskName,
+                  style: TextStyle(
+                    decoration: taskCompleted
+                        ? TextDecoration.lineThrough
+                        : TextDecoration.none,
+                  ),
+                  overflow: TextOverflow.visible,
+                  maxLines: 2,
                 ),
               ),
             ],
