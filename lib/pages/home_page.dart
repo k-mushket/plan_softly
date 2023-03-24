@@ -91,9 +91,12 @@ class _HomePageState extends State<HomePage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
         onPressed: createNewTask,
+        backgroundColor: Colors.purple.shade400,
+        foregroundColor: Colors.white,
+        child: Icon(Icons.note_add_outlined),
       ),
+      backgroundColor: Colors.purple.shade300,
     );
   }
 }

@@ -17,41 +17,60 @@ class PlanTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 25, left: 25, right: 25),
-      child: Slidable(
-        endActionPane: ActionPane(
-          motion: StretchMotion(),
-          children: [
-            SlidableAction(
-              backgroundColor: Colors.red.shade300,
-              onPressed: deleteFunction,
-              icon: Icons.delete_outline,
-              borderRadius: BorderRadius.circular(12),
-            ),
-          ],
-        ),
-        child: Container(
-          padding: const EdgeInsets.all(25),
-          decoration: BoxDecoration(
-            color: Colors.yellow,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Row(
+      padding: const EdgeInsets.all(10),
+      child: Container(
+        child: Slidable(
+          endActionPane: ActionPane(
+            motion: StretchMotion(),
             children: [
-              Checkbox(
-                value: taskCompleted,
-                onChanged: onChanged,
-                activeColor: Colors.black,
-              ),
-              Text(
-                taskName,
-                style: TextStyle(
-                  decoration: taskCompleted
-                      ? TextDecoration.lineThrough
-                      : TextDecoration.none,
-                ),
+              SlidableAction(
+                backgroundColor: Colors.purple,
+                onPressed: deleteFunction,
+                icon: Icons.delete_outline,
+                borderRadius: BorderRadius.circular(12),
               ),
             ],
+          ),
+          child: Container(
+            margin: EdgeInsets.only(left: 10, right: 10),
+            padding: const EdgeInsets.all(15),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: Colors.purple.shade300,
+              boxShadow: const [
+                BoxShadow(
+                  blurRadius: 15.0,
+                  offset: Offset(-5, -5),
+                  color: Color.fromARGB(255, 219, 143, 233),
+                ),
+                BoxShadow(
+                  blurRadius: 15.0,
+                  offset: Offset(5, 5),
+                  color: Colors.purple,
+                ),
+              ],
+            ),
+            child: Row(
+              children: [
+                Checkbox(
+                  value: taskCompleted,
+                  onChanged: onChanged,
+                  activeColor: Colors.purple.shade600,
+                ),
+                Flexible(
+                  child: Text(
+                    taskName,
+                    style: TextStyle(
+                      decoration: taskCompleted
+                          ? TextDecoration.lineThrough
+                          : TextDecoration.none,
+                    ),
+                    overflow: TextOverflow.visible,
+                    maxLines: 2,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

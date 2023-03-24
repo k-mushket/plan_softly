@@ -30,9 +30,10 @@ class TaskWindow extends StatelessWidget {
               ),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 PlanButton(text: 'Save', onPressed: onSave),
+                PlanButton(text: 'Cancel', onPressed: onCancel),
               ],
             ),
           ],
