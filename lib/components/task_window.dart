@@ -17,6 +17,7 @@ class TaskWindow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      backgroundColor: Colors.purple.shade300,
       content: Container(
         height: 120,
         child: Column(
