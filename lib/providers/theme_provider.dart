@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
 class ThemeProvider extends ChangeNotifier {
-  Color _themeColor; 
+  Color _themeColor;
 
-  ThemeProvider() : _themeColor = Colors.blue {
-    _loadThemeColor();
-  }
+  ThemeProvider({required Color initialColor}) : _themeColor = initialColor;
 
   Color get themeColor => _themeColor;
 
@@ -25,12 +23,12 @@ class ThemeProvider extends ChangeNotifier {
     int? colorValue = box.get('themeColor');
     if (colorValue != null) {
       _themeColor = Color(colorValue);
-      notifyListeners(); 
+      notifyListeners();
     }
   }
 
   Future<void> _saveThemeColor(Color color) async {
     var box = await Hive.openBox('settingsBox');
-    await box.put('themeColor', color.value); 
+    await box.put('themeColor', color.value);
   }
 }

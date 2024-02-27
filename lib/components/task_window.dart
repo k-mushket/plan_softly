@@ -20,26 +20,40 @@ class TaskWindow extends StatelessWidget {
 
     return AlertDialog(
       backgroundColor: Color.lerp(primaryColor, Colors.white, 0.4),
-      content: SizedBox(
-        height: 120,
+      content: Container(
+        height: 150,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             TextField(
               controller: controller,
               decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                enabledBorder: OutlineInputBorder(),
-                focusedBorder: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
+                focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
                 hintText: 'Add new task',
               ),
               cursorColor: primaryColor,
             ),
+            SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                PlanButton(text: 'Save', onPressed: onSave),
-                PlanButton(text: 'Cancel', onPressed: onCancel),
+                PlanButton(
+                  text: 'Cancel',
+                  onPressed: onCancel,
+                  foregroundColor: primaryColor,
+                  backgroundColor: Colors.white,
+                ),
+                PlanButton(
+                  text: 'Save',
+                  onPressed: onSave,
+                  foregroundColor: Colors.white,
+                  backgroundColor: primaryColor,
+                ),
               ],
             ),
           ],
