@@ -4,10 +4,10 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 class PlanTile extends StatelessWidget {
   final String taskName;
   final bool taskCompleted;
-  Function(bool?)? onChanged;
-  Function(BuildContext)? deleteFunction;
+  final Function(bool?)? onChanged;
+  final Function(BuildContext)? deleteFunction;
 
-  PlanTile(
+  const PlanTile(
       {super.key,
       required this.taskName,
       required this.taskCompleted,
@@ -21,7 +21,7 @@ class PlanTile extends StatelessWidget {
       child: Container(
         child: Slidable(
           endActionPane: ActionPane(
-            motion: StretchMotion(),
+            motion: const StretchMotion(),
             children: [
               SlidableAction(
                 backgroundColor: Colors.purple,
@@ -32,7 +32,7 @@ class PlanTile extends StatelessWidget {
             ],
           ),
           child: Container(
-            margin: EdgeInsets.only(left: 10, right: 10),
+            margin: const EdgeInsets.only(left: 10, right: 10),
             padding: const EdgeInsets.all(15),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),

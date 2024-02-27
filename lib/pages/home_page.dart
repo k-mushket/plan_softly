@@ -8,7 +8,7 @@ import '../data/database.dart';
 class HomePage extends StatefulWidget {
   final String title;
 
-  HomePage({super.key, required this.title});
+  const HomePage({super.key, required this.title});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text(
           widget.title,
-          style: TextStyle(color: Colors.black),
+          style: const TextStyle(color: Colors.black),
         ),
         centerTitle: true,
         elevation: 0,
@@ -94,7 +94,7 @@ class _HomePageState extends State<HomePage> {
         onPressed: createNewTask,
         backgroundColor: Colors.purple.shade400,
         foregroundColor: Colors.white,
-        child: Icon(Icons.note_add_outlined),
+        child: const Icon(Icons.note_add_outlined),
       ),
       backgroundColor: Colors.purple.shade300,
     );

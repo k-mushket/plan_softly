@@ -32,7 +32,7 @@ class App extends StatelessWidget {
         primarySwatch: Colors.purple,
         fontFamily: 'Quicksand',
       ),
-      home: HomePage(title: appTitle),
+      home: const HomePage(title: appTitle),
     );
   }
 }

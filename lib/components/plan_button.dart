@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class PlanButton extends StatelessWidget {
   final String text;
-  VoidCallback onPressed;
+  final VoidCallback onPressed;
 
-  PlanButton({super.key, required this.text, required this.onPressed});
+  const PlanButton({super.key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class PlanButton extends StatelessWidget {
       color: Theme.of(context).primaryColor,
       child: Text(
         text,
-        style: TextStyle(color: Colors.white),
+        style: const TextStyle(color: Colors.white),
       ),
     );
   }
