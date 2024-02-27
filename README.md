@@ -16,4 +16,4 @@ PlanSoftly is a meticulously crafted Flutter application designed to streamline 
 - **Provider**: A state management solution to ensure your UI is always as up-to-date as your data.
 
 ## Project Demo
-<img src="https://github.com/k-mushket/my_media/blob/main/plan_softly.gif" width="200">
+<img src="https://github.com/k-mushket/my_media/blob/main/plan_softly.gif" width="250">
