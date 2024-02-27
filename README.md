@@ -3,4 +3,4 @@
 My first flutter app
 
 ## Project Demo
-![](https://github.com/k-mushket/my_media/blob/main/plan_softly.mp4)
+![](https://github.com/k-mushket/my_media/blob/main/plan_softly.gif)
