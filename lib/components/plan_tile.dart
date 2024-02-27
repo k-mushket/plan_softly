@@ -38,19 +38,14 @@ class PlanTile extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              color: Color.lerp(primaryColor, Colors.white, 0.2),
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 15.0,
-                  offset: const Offset(-5, -5),
-                  color: primaryColor.withOpacity(0.2),
-                ),
-                BoxShadow(
-                  blurRadius: 15.0,
-                  offset: const Offset(5, 5),
-                  color: primaryColor.withOpacity(0.7),
-                ),
-              ],
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color.lerp(primaryColor, primaryColor, 0.1)!,
+                  Color.lerp(primaryColor, Colors.white, 0.2)!,
+                ],
+              ),
             ),
             child: Row(
               children: [
