@@ -16,8 +16,10 @@ class TaskWindow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final primaryColor = Theme.of(context).primaryColor;
+
     return AlertDialog(
-      backgroundColor: Colors.purple.shade300,
+      backgroundColor: Color.lerp(primaryColor, Colors.white, 0.4),
       content: SizedBox(
         height: 120,
         child: Column(
@@ -27,8 +29,11 @@ class TaskWindow extends StatelessWidget {
               controller: controller,
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
+                enabledBorder: OutlineInputBorder(),
+                focusedBorder: OutlineInputBorder(),
                 hintText: 'Add new task',
               ),
+              cursorColor: primaryColor,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -16,6 +16,8 @@ class PlanTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final primaryColor = Theme.of(context).primaryColor;
+
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Container(
@@ -24,7 +26,7 @@ class PlanTile extends StatelessWidget {
             motion: const StretchMotion(),
             children: [
               SlidableAction(
-                backgroundColor: Colors.purple,
+                backgroundColor: primaryColor,
                 onPressed: deleteFunction,
                 icon: Icons.delete_outline,
                 borderRadius: BorderRadius.circular(12),
@@ -36,17 +38,17 @@ class PlanTile extends StatelessWidget {
             padding: const EdgeInsets.all(15),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              color: Colors.purple.shade300,
-              boxShadow: const [
+              color: Color.lerp(primaryColor, Colors.white, 0.2),
+              boxShadow: [
                 BoxShadow(
                   blurRadius: 15.0,
-                  offset: Offset(-5, -5),
-                  color: Color.fromARGB(255, 219, 143, 233),
+                  offset: const Offset(-5, -5),
+                  color: primaryColor.withOpacity(0.2),
                 ),
                 BoxShadow(
                   blurRadius: 15.0,
-                  offset: Offset(5, 5),
-                  color: Colors.purple,
+                  offset: const Offset(5, 5),
+                  color: primaryColor.withOpacity(0.7),
                 ),
               ],
             ),
@@ -55,7 +57,7 @@ class PlanTile extends StatelessWidget {
                 Checkbox(
                   value: taskCompleted,
                   onChanged: onChanged,
-                  activeColor: Colors.purple.shade600,
+                  activeColor: primaryColor,
                 ),
                 Flexible(
                   child: Text(

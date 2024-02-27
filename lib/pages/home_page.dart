@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:plan_softly/pages/settings_page.dart';
 
 import '../components/plan_tile.dart';
 import '../components/task_window.dart';
@@ -68,7 +69,15 @@ class _HomePageState extends State<HomePage> {
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final primaryColor = Theme.of(context).primaryColor;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -78,6 +87,21 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.transparent,
+        actions: [
+          IconButton(
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) {
+                  return SettingsPage();
+                },
+              ),
+            ),
+            icon: const Icon(
+              Icons.settings_outlined,
+              color: Colors.black,
+            ),
+          ),
+        ],
       ),
       body: ListView.builder(
         itemCount: db.planList.length,
@@ -92,11 +116,11 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: createNewTask,
-        backgroundColor: Colors.purple.shade400,
+        backgroundColor: Color.lerp(primaryColor, Colors.white, 0.4),
         foregroundColor: Colors.white,
         child: const Icon(Icons.note_add_outlined),
       ),
-      backgroundColor: Colors.purple.shade300,
+      backgroundColor: Color.lerp(primaryColor, Colors.white, 0.3),
     );
   }
 }

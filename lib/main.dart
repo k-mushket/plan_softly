@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'pages/home_page.dart';
+import 'package:provider/provider.dart';
+
+import 'package:plan_softly/providers/theme_provider.dart';
+import 'package:plan_softly/pages/home_page.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
-
-  var box = await Hive.openBox('box');
-
-  SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(
-      statusBarColor: Colors.purple.shade300,
-      systemNavigationBarColor: Colors.purple.shade400,
-    ),
-  );
+  await Hive.openBox('settingsBox');
+  await Hive.openBox('box');
 
   runApp(const App());
 }
@@ -25,14 +21,21 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: appTitle,
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-        fontFamily: 'Quicksand',
+    return ChangeNotifierProvider(
+      create: (_) => ThemeProvider(),
+      child: Consumer<ThemeProvider>(
+        builder: (context, themeProvider, child) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: appTitle,
+            theme: ThemeData(
+              primaryColor:  themeProvider.themeColor,
+              fontFamily: 'Quicksand',
+            ),
+            home: const HomePage(title: appTitle),
+          );
+        },
       ),
-      home: const HomePage(title: appTitle),
     );
   }
 }
