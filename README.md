@@ -11,9 +11,10 @@ PlanSoftly is a meticulously crafted Flutter application designed to streamline 
 
 ## Technologies Used
 
-- **Flutter**: For building a beautiful, natively compiled application for mobile, web, and desktop from a single codebase.
 - **Hive**: A lightweight and blazing-fast key-value database for efficient local storage management.
 - **Provider**: A state management solution to ensure your UI is always as up-to-date as your data.
+- **Flutter Slidable**: An implementation of slidable list item with directional slide actions that can be dismissed.
+- **Quicksand Font**: A sans serif typeface with rounded ends that give it a friendly and modern feel.
 
 ## Project Demo
 <img src="https://github.com/k-mushket/my_media/blob/main/plan_softly.gif" width="250">
